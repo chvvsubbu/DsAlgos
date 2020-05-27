@@ -9,11 +9,11 @@ public class AverageOfSubarrayOfSizeK {
         int windowStart = 0;
         int windowEnd = 0;
 
-        int currentWindowSum=0;
+        double currentWindowSum=0;
         for( windowEnd = 0; windowEnd <arr.length; windowEnd++){
             currentWindowSum +=arr[windowEnd];
             if(windowEnd >= K-1){
-                result[windowStart] = currentWindowSum/(float) K;
+                result[windowStart] = currentWindowSum/ K;
                 currentWindowSum -=arr[windowStart];
                 windowStart++;
             }
