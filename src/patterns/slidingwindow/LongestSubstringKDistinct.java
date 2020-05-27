@@ -15,7 +15,7 @@ public class LongestSubstringKDistinct {
             charMap.put(ch, charMap.getOrDefault(ch,0)+1);
             while (charMap.size() >K){
                 ch = str.charAt(windowStart);
-                charMap.put(ch,charMap.getOrDefault(ch,0)-1);
+                charMap.put(ch,charMap.get(ch)-1);
                 if(charMap.get(ch) ==0){
                     charMap.remove(ch);
                 }
