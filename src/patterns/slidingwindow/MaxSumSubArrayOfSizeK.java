@@ -12,7 +12,6 @@ public class MaxSumSubArrayOfSizeK {
                 maxSum = Math.max(maxSum, currentSum);
                 currentSum -= arr[windowStart];
                 windowStart++;
-
             }
         }
         return maxSum;
