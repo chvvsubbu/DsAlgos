@@ -21,7 +21,6 @@ public class MaxFruitCountOf2Types {
                 }
                 windowStart++;
             }
-            result = Math.max(result,windowEnd-windowStart+1);
         }
 
         return result;
