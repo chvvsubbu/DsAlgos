@@ -23,8 +23,21 @@ public class SmallestRange {
                 minHeap.add(new PNode(i, 0));
             currentMaxNumber = Math.max(currentMaxNumber, lists.get(i)[0]);
         }
-        //TODO  change code here
-    return new int[10];
+
+        while (minHeap.size() == lists.size()){
+            PNode node = minHeap.poll();
+            if (rangeEnd - rangeStart > currentMaxNumber - lists.get(node.arrayIndex)[node.elementIndex]) {
+                rangeStart = lists.get(node.arrayIndex)[node.elementIndex];
+                rangeEnd = currentMaxNumber;
+            }
+            node.elementIndex++;
+            if (lists.get(node.arrayIndex).length > node.elementIndex) {
+                minHeap.add(node); // insert the next element in the heap
+                currentMaxNumber = Math.max(currentMaxNumber, lists.get(node.arrayIndex)[node.elementIndex]);
+            }
+
+        }
+        return new int[] { rangeStart, rangeEnd };
     }
 
     public static void main(String[] args) {
