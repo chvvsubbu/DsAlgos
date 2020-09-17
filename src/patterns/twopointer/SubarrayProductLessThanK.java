@@ -1,6 +1,7 @@
 package patterns.twopointer;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class SubarrayProductLessThanK {
@@ -14,7 +15,7 @@ public class SubarrayProductLessThanK {
             while (product >= target && left <arr.length){
                 product = product/ arr[left++];
             }
-            List<Integer> tempList = new ArrayList<>();
+            List<Integer> tempList = new LinkedList<>();
             for (int i = right; i >= left ; i--) {
                 tempList.add(0, arr[i]);
                 result.add(new ArrayList<>(tempList));

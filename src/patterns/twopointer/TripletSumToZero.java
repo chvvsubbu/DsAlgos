@@ -19,7 +19,6 @@ public class TripletSumToZero {
     private static void search(int[] arr, int targetSum, int left, List<List<Integer>> tripplets) {
 
         int right = arr.length-1;
-
         while (left < right) {
             int currentSum = arr[left]+ arr[right];
             if( currentSum == targetSum){
