@@ -5,15 +5,18 @@ public class FloorOfANumber {
 
         if(key > arr[arr.length-1]) return arr.length-1;
         if(key < arr[0]) return -1;
-        int start = 0, end = arr.length-1;
+
+        int start = 0, end = arr.length - 1;
 
         while (start <=end){
             int mid = start + (end-start)/2;
-            if(arr[mid] == key) return  mid;
-            if(key < arr[mid]){
+
+            if(key <arr[mid]){
                 end = mid - 1;
             }else if(key > arr[mid]){
                 start = mid + 1;
+            }else {
+                return mid;
             }
         }
         return end;
