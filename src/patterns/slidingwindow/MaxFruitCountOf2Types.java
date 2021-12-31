@@ -8,23 +8,26 @@ public class MaxFruitCountOf2Types {
     public static int findLength(char[] arr) {
         int windowEnd = 0, windowStart = 0;
         int result = Integer.MIN_VALUE;
-        Map<Character, Integer> charMap = new HashMap<>();
+        Map<Character, Integer> fruitFrequencyMap = new HashMap<>();
 
 
         for(windowEnd =0;windowEnd <arr.length; windowEnd++){
 
-            charMap.put(arr[windowEnd], charMap.getOrDefault(arr[windowEnd], 0)+1 );
-            while(charMap.size() >2){
-                charMap.put(arr[windowStart], charMap.get(arr[windowStart])-1);
-                if(charMap.get(arr[windowStart]) == 0) {
-                    charMap.remove(arr[windowStart]);
+            fruitFrequencyMap.put(arr[windowEnd], fruitFrequencyMap.getOrDefault(arr[windowEnd], 0)+1 );
+            while(fruitFrequencyMap.size() >2){
+                fruitFrequencyMap.put(arr[windowStart], fruitFrequencyMap.get(arr[windowStart])-1);
+                if(fruitFrequencyMap.get(arr[windowStart]) == 0) {
+                    fruitFrequencyMap.remove(arr[windowStart]);
                 }
                 windowStart++;
             }
+            result = Math.max(result, windowEnd - windowStart + 1);
         }
 
         return result;
     }
+
+
 
     public static void main(String[] args) {
         int count = findLength(new char[]{'A', 'B', 'C', 'A', 'C'});
