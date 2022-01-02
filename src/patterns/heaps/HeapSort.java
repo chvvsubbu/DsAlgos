@@ -2,24 +2,13 @@ package patterns.heaps;
 
 public class HeapSort {
 
-
-
-    public static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-    }
-
-
     private static void heapSort(int[] arr) {
         int n = arr.length;
         buildHeap(arr);
         for (int i = n-1; i>= 0; i--) {
             swap(arr,0,i);
             heapify(arr,0,i);
-
         }
-
     }
 
     private static void buildHeap(int[] arr) {
@@ -27,7 +16,6 @@ public class HeapSort {
         for (int i = n/2; i >=0 ; i--) {
             heapify(arr, i, n);
         }
-
     }
 
     public static void heapify(int[]arr, int i, int n){
@@ -46,6 +34,12 @@ public class HeapSort {
         }
     }
 
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
     public static void swap(int[] arr,int i,int j) {
         int temp = arr[i];
         arr[i] = arr[j];
@@ -54,7 +48,6 @@ public class HeapSort {
 
     public static void main(String[] args) {
         int[] arr = {7,9,3,2,4,1,16,14,10,8};
-        //buildHeap(arr);
         heapSort(arr);
         printArray(arr);
 

@@ -3,8 +3,6 @@ package patterns.cyclicsort;
 import java.util.ArrayList;
 import java.util.List;
 
-import static patterns.heaps.HeapSort.swap;
-
 public class AllMissingNumbers {
     public static List<Integer>  findNumbers(int[] nums){
         int i = 0;
